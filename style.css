@@ -1,0 +1,224 @@
+* {
+  padding: 0;
+  margin: 0, 0.2rem;
+  box-sizing: border-box;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+input,
+button {
+  height: clamp(2.5rem, 2.75rem, 3rem);
+  padding: 0 1rem; /* horizontal padding only for perfect height */
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+}
+
+input {
+  width: clamp(9rem, 20rem, 25rem);
+  border: 2px solid #ccc;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  flex-grow: 1;
+}
+
+input:focus {
+  border-color: #7fbede;
+  box-shadow: 0 0 0 3px rgba(71, 68, 128, 0.2);
+}
+
+button {
+  width: clamp(5rem, 6rem, 8rem);
+  font-weight: 500;
+  color: white;
+  background-color: #5788cd;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #3c6fb6;
+  transform: scale(1.03);
+}
+
+button:active {
+  background-color: #3730a3;
+  transform: scale(0.98);
+}
+
+.clearallBtn {
+  background-color: rgb(178, 71, 71);
+}
+
+.clearallBtn:hover {
+  background-color: rgba(164, 35, 35, 0.729);
+}
+
+.clearallBtn:active {
+  background-color: rgba(164, 35, 35, 0.729);
+}
+
+.defaultBlock {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+.displayArea1 {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem; /* spacing between items */
+  padding: 1rem;
+  background-color: #c1c2c4; /* soft background */
+  border: 1px solid #0c0f16; /* light border */
+  border-radius: 0.5rem;
+  max-height: 500px;
+  overflow-y: auto;
+  color: black;
+  font-size: clamp(0.8rem, 1.2rem, 2.5rem);
+}
+.task-block {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 3rem, 4rem);
+  width: 100%;
+}
+.task_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem;
+  gap: clamp(0.5rem, 2rem, 2.5rem);
+}
+.deleteBtn {
+  background-color: rgb(178, 71, 71);
+
+  &:hover {
+    background-color: rgba(164, 35, 35, 0.729);
+  }
+  &:active {
+    background-color: rgba(164, 35, 35, 0.729);
+  }
+}
+/* Responsive Layout */
+@media (max-width: 500px) {
+  .defaultBlock {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  input,
+  button {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+/* error */
+.error {
+  border: 3.5px double red;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    border-color: red;
+  }
+  50% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: rgb(207, 95, 95);
+  }
+}
+/* Alert */
+.custom-alert {
+  position: fixed;
+  top: 17%;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: white;
+  color: black;
+  padding: 1.2rem 2rem;
+  border: 2px solid crimson;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  z-index: 99;
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+.custom-alert button {
+  margin-top: 1rem;
+  padding: 0.4rem 1rem;
+  border: none;
+  background-image: linear-gradient(90deg, #ff4d4d, #842c2c, #ca3333);
+
+  color: white;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+/* colorchange */
+.colorCHange {
+  padding: 0.6rem 1rem;
+  background-color: #5788cd;
+  color: white;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  margin-top: 0.5rem;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.4rem;
+  padding: 0.5rem 0;
+  min-width: 160px;
+  z-index: 100;
+}
+
+.dropdown a {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown a:hover {
+  background-color: #f0f0f0;
+}
+
+.hidden {
+  display: none;
+}
+
+.fontCrimson {
+  color: #dc143c;
+  padding: 5px;
+  border: 2px solid #dc143c;
+}
+.fontBlue {
+  color: #1e90ff;
+}
+.fontGreen {
+  color: #22854f;
+}
+/* Add a border of that color */

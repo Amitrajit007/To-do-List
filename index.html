@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo List</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body style="background-color: rgb(104, 102, 102)">
+    <div class="custom-alert" id="alertBox">
+      <p id="alertMessage">This is a custom alert!</p>
+      <button onclick="closeAlert()">OK</button>
+    </div>
+
+    <h1 style="color: antiquewhite">
+      <center>To Do list</center>
+    </h1>
+    <div class="defaultBlock">
+      <input class="input1" type="text" placeholder="Add task" />
+      <input class="input2" type="datetime-local" />
+      <button type="button" class="btn1">Add task</button>
+      <button type="button" class="clearallBtn">Clear All</button>
+    </div>
+    <div class="displayArea1">You Currently Have No Task</div>
+  </body>
+</html>
