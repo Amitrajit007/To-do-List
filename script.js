@@ -56,6 +56,7 @@ function addtoArray() {
   taskArray.push({
     task: data1,
     dateTime: formated,
+    color: "",
   });
   LocalStore();
   input1.value = "";
@@ -68,11 +69,12 @@ function renderTasks() {
   taskArray.forEach((task, i) => {
     let slNO = i + 1;
     renderHTML += `
-      <div class="task-block" data-index="${i}">
+      <div class="task-block">
+        <div class="customColor ${task.color}" data-index="${i}">
         <div  style=" 
         font-weight: 550;" class="task_container">
         <p class="slno">${slNO}.</p>
-        <p class="customColor">${task.task}</p>
+        <p >${task.task}</p>
         <p style=" color: #555;">
             ${task.dateTime}
           </p>
@@ -81,11 +83,14 @@ function renderTasks() {
         <div class="container">
           <button type="button" class="colorCHange" data-index="${i}">⚙</button>
           <div id="dropdownMenu" class="dropdown hidden">
-            <a href="#">🟥 Crimson</a>
-            <a href="#">🟦 Dodger Blue</a>
-            <a href="#">🟩 Sea Green</a>
+            <a>🟥 Crimson</a>
+            <a>🟦 Dodger Blue</a>
+            <a>🟩 Sea Green</a>
+            <a>🩷 Pink</a>
+
           </div>
         </div>
+      </div>
       </div>
     `;
     displayArea1.innerHTML = renderHTML;
@@ -105,18 +110,27 @@ function renderTasks() {
       // Handle color selection
       menu.addEventListener("click", (e) => {
         const choice = e.target.innerText;
-        taskParagraph.classList.remove("fontCrimson", "fontBlue", "fontGreen");
+        taskParagraph.classList.remove(
+          "borderCrimson",
+          "borderBlue",
+          "borderGreen",
+          "borderPink"
+        );
+        const colorIndex = parseInt(dropbtn.dataset.index);
         if (choice === "🟥 Crimson") {
-          taskParagraph.classList.add("fontCrimson");
-          taskParagraph.classList.remove("fontBlue", "fontGreen");
+          taskParagraph.classList.add("borderCrimson");
+          taskArray[colorIndex].color = "borderCrimson";
         } else if (choice === "🟦 Dodger Blue") {
-          taskParagraph.classList.add("fontBlue");
-          taskParagraph.classList.remove("fontCrimson", "fontGreen");
+          taskParagraph.classList.add("borderBlue");
+          taskArray[colorIndex].color = "borderBlue";
         } else if (choice === "🟩 Sea Green") {
-          taskParagraph.classList.add("fontGreen");
-          taskParagraph.classList.remove("fontCrimson", "fontBlue");
+          taskParagraph.classList.add("borderGreen");
+          taskArray[colorIndex].color = "borderGreen";
+        } else if (choice === "🩷 Pink") {
+          taskParagraph.classList.add("borderPink");
+          taskArray[colorIndex].color = "borderPink";
         }
-
+        LocalStore();
         menu.classList.add("hidden"); // Close after selection
       });
 

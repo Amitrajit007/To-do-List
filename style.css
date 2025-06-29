@@ -84,12 +84,21 @@ button:active {
   color: black;
   font-size: clamp(0.8rem, 1.2rem, 2.5rem);
 }
-.task-block {
+.customColor {
   display: flex;
   align-items: center;
   gap: clamp(1.5rem, 3rem, 4rem);
   width: 100%;
 }
+.task-block {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
 .task_container {
   display: flex;
   flex-direction: row;
@@ -120,6 +129,7 @@ button:active {
     margin-left: 0;
   }
 }
+
 /* error */
 .error {
   border: 3.5px double red;
@@ -183,8 +193,11 @@ button:active {
   cursor: pointer;
 }
 
+.container {
+  position: relative;
+}
+
 .dropdown {
-  position: absolute;
   margin-top: 0.5rem;
   background-color: white;
   border: 1px solid #ccc;
@@ -210,15 +223,51 @@ button:active {
   display: none;
 }
 
-.fontCrimson {
-  color: #dc143c;
-  padding: 5px;
+.borderCrimson {
+  color: #a00f2c;
   border: 2px solid #dc143c;
 }
-.fontBlue {
-  color: #1e90ff;
+.borderBlue {
+  color: #105daa;
+  border: 2px solid #1e90ff;
 }
-.fontGreen {
+.borderGreen {
+  border: 2px solid #22854f;
   color: #22854f;
 }
+.borderPink {
+  border: 2px solid #e45ddd;
+  color: #c11eb9;
+}
 /* Add a border of that color */
+#dropdownMenu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.4rem;
+  padding: 0.5rem 0;
+  min-width: 160px;
+  z-index: 100;
+}
+@media (max-width: 600px) {
+  .task-block {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .task_container,
+  .deleteBtn,
+  .container {
+    width: 100%;
+  }
+
+  .deleteBtn,
+  .colorCHange {
+    margin-top: 0.5rem;
+  }
+}
